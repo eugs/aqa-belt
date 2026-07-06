@@ -28,3 +28,20 @@ Alternatives:
 - **Single dispatcher** — one command on PATH (`aqa`), everything invoked as `aqa r`, `aqa dev`, `aqa hon`. Namespaces the whole tool but changes the muscle memory.
 
 Trade-off to decide: install friction vs. organizational clarity vs. invocation ergonomics.
+
+### Support other terminals / shells
+
+Currently cmd-only. Consider adding parallel implementations for:
+- **PowerShell** (`.ps1`) — most-used on modern Windows; different quoting, error handling, and `PATH` semantics.
+- **Git Bash / WSL** (`.sh`) — needed if any team member works in a POSIX-like shell.
+
+Open question: keep one command name per script and dispatch by shell, or namespace (`r.cmd` / `r.ps1` / `r.sh`) and let each shell's PATH resolution pick the right one?
+
+### User-defined shortcuts on top of the tool
+
+Let users register their own aliases without editing the repo. Ideas:
+- A `bin/user/` (git-ignored) subdir the installer also adds to PATH — drop-in personal scripts alongside the shipped ones.
+- A config file (`~/.aqa-belt` or repo-local `user.cmd`) sourced on shell start that defines project-specific shortcuts.
+- A generator command: `aqa new r-staging` scaffolds a new script from a template.
+
+Open question: is this for personal per-user tweaks, or for team-shared but project-local overrides? The answer changes where the file lives (home dir vs. project dir).
