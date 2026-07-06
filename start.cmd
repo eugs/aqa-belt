@@ -17,6 +17,7 @@ echo %ESC%[36mUser Path -^> Edit -^> New -^> Ctrl+V. Any key = next.%ESC%[0m
 echo.
 
 for /d %%D in ("%binDir%\*") do call :emit "%%~fD"
+call :emit "%binDir%"
 
 echo.
 echo %ESC%[32mDone. Open a NEW cmd window.%ESC%[0m
