@@ -16,6 +16,16 @@ bin/
 
 Each subfolder is added to `PATH` individually.
 
+## Quick start
+
+```cmd
+git clone git@github.com:eugs/aqa-belt.git C:\Tools\aqa-belt
+cd C:\Tools\aqa-belt
+about
+```
+
+`about` prints the tool description and all available commands grouped by category. Then follow **Install** below to make them callable from anywhere.
+
 ## Install
 
 1. **Clone** the repo anywhere on disk, for example:
@@ -27,10 +37,10 @@ Each subfolder is added to `PATH` individually.
 2. **List the paths to add** — run from the repo root:
 
     ```cmd
-    paths.cmd
+    start.cmd
     ```
 
-    It prints one absolute path per `bin/<subdir>`. Copy them.
+    It walks each `bin/<subdir>` one by one, copies each to the clipboard, and waits for a keypress.
 
 3. **Add them to your User `Path`** via the GUI:
 
