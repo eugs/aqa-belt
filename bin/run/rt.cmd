@@ -32,8 +32,10 @@ shift
 goto build
 
 :run
-echo Running: npm run retest -- --tags "!TAGS_EXPR!"
-npm run retest -- --tags "!TAGS_EXPR!"
+set "PARALLEL_ARG="
+if defined PARALLEL if not "%PARALLEL%"=="" set "PARALLEL_ARG= --parallel %PARALLEL%"
+echo Running: npm run retest --!PARALLEL_ARG! --tags "!TAGS_EXPR!"
+npm run retest --!PARALLEL_ARG! --tags "!TAGS_EXPR!"
 set "EXITCODE=%ERRORLEVEL%"
 
 endlocal & exit /b %EXITCODE%
