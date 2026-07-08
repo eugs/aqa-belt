@@ -63,7 +63,8 @@ where r
 | Command | Category | Description                                                       |
 |---------|----------|-------------------------------------------------------------------|
 | `r`     | other    | Open `./report/report.html` (relative to cwd) in default browser. |
-| `rt`    | run      | Re-run tests by tag(s): `rt CCP37aaafef CCPd593d8dc`.             |
+| `rt`    | run      | Re-run tests by tag(s): `rt CCP1 CCP2` or `rt p4 CCP1` (`--parallel 4` for this run only). |
+| `par`   | run      | Manage `PARALLEL` env consumed by `rt`. `par` prints, `par 4` sets, `par off` / `par 0` clears. |
 | `env`   | env      | Print current `ENV` value.                                        |
 | `d` / `dev`   | env | Switch `ENV` to `dev`.                                            |
 | `s` / `stg`   | env | Switch `ENV` to `stg`.                                            |
