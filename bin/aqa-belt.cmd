@@ -6,6 +6,8 @@ for /f %%a in ('echo prompt $E ^| cmd') do set "ESC=%%a"
 set "binDir=%~dp0"
 if "%binDir:~-1%"=="\" set "binDir=%binDir:~0,-1%"
 
+set "pad=       "
+
 echo.
 for /d %%D in ("%binDir%\*") do (
     set "line="
@@ -16,6 +18,7 @@ for /d %%D in ("%binDir%\*") do (
             set "line=%%~nF"
         )
     )
-    echo   %ESC%[36m%%~nxD%ESC%[0m  !line!
+    set "name=%%~nxD%pad%"
+    echo   %ESC%[36m!name:~0,7!%ESC%[0m !line!
 )
 echo.
